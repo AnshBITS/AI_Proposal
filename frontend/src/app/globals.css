@@ -1,0 +1,163 @@
+@import "tailwindcss";
+
+* {
+  border-color: hsl(217.2, 32.6%, 17.5%);
+}
+
+body {
+  background-color: hsl(222.2, 84%, 4.9%);
+  color: hsl(210, 40%, 98%);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Performance optimizations for smooth hover animations */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* GPU acceleration for better performance */
+.gpu-accelerated {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Enhanced hover transitions for feature cards */
+.hover-fast {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+.hover-fast:hover {
+  transform: translateY(-8px) scale(1.02) translateZ(0);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Feature card enhanced hover effects */
+.feature-card {
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+.feature-card:hover {
+  transform: translateY(-12px) scale(1.03) translateZ(0);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4), 0 0 30px rgba(59, 130, 246, 0.2);
+}
+
+/* Glowing hover effect for cards */
+.glow-on-hover {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.glow-on-hover:hover {
+  box-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+}
+
+/* Better button hover effects */
+.btn-hover {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+/* Gradient backgrounds */
+.bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #1e293b, #0f172a, #1e1b4b);
+}
+
+.bg-gradient-to-r {
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+}
+
+/* Smooth scrolling optimization */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Performance optimizations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Optimize repaints and reflows */
+.motion-safe\:transform {
+  transform: translateZ(0);
+}
+
+/* Optimize images and media */
+img, video {
+  content-visibility: auto;
+  contain-intrinsic-size: 200px;
+}
+
+/* Optimize animations */
+@media (prefers-reduced-motion: no-preference) {
+  * {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+}
+
+/* Lazy loading optimization for large sections */
+.section-lazy {
+  content-visibility: auto;
+  contain-intrinsic-size: 500px;
+}
+
+/* GPU acceleration for animations */
+.gpu-accelerated,
+[class*="motion-"],
+[class*="animate-"] {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Intersection observer optimizations */
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom animations */
+@keyframes gradient-x {
+  0%, 100% {
+    transform: translateX(0%);
+  }
+  50% {
+    transform: translateX(100%);
+  }
+}
+
+.bg-size-200 {
+  background-size: 200% 200%;
+}
+
+.bg-pos-100 {
+  background-position: 100% 50%;
+}
